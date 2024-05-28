@@ -1,0 +1,154 @@
+/* General styles */
+body {
+  font-family: "Avenir", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #5B332A;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  padding: 10px;
+}
+
+.logo img {
+  width: 100px;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+}
+
+.nav-icons {
+  display: flex;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+  color: #FFD9B8;
+}
+
+.nav-item .icon {
+  font-size: 20px;
+  margin-right: 5px;
+}
+
+.nav-item .nav-text {
+  display: none;
+}
+
+.search-bar {
+  display: none;
+}
+
+.search-bar input {
+  padding: 10px;
+  border: none;
+  background-color: #FFD9B8;
+  color: #331C17;
+  font-size: 16px;
+  width: 400px;
+  margin: 10px;
+  box-sizing: border-box;
+}
+
+main {
+  position: relative;
+  top: 39px;
+}
+
+aside {
+  position: relative;
+  background-color: #5B332A;
+  top:39px;
+}
+
+/* Mobile styles */
+@media (max-width: 576px) {
+  nav {
+    flex-wrap: wrap;
+  }
+
+  .nav-item {
+    margin-left: 10px;
+  }
+
+  .nav-item .nav-text {
+    display: none;
+  }
+
+  #search-bar-aside.active {
+    display: block;
+  }
+
+  #search-bar-aside {
+    width: 100%;
+    padding-top: 10px;
+  }
+
+  #search-bar-aside input {
+    width: calc(100% - 20px);
+  }
+}
+
+/* Tablet styles */
+@media (min-width: 577px) and (max-width: 1024px) {
+  header {
+    flex-direction: column;
+  }
+
+  .logo {
+    margin-top: 10px;
+  }
+
+  nav {
+    margin-top: 20px;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .nav-item:first-child {
+    display: none;
+  }
+
+  #search-bar-nav {
+    display: block;
+  }
+
+  main {
+    top: 128px;
+  }
+}
+
+/* Desktop styles */
+@media (min-width: 1025px) {
+  .nav-item .nav-text {
+    display: inline-block;
+  }
+  .nav-item {
+    margin-left: 20px;
+  }
+  .nav-item:first-child {
+    display: none;
+  }
+
+  #search-bar-nav {
+    display: block;
+  }
+
+  main {
+    top: 59px;
+  }
+}

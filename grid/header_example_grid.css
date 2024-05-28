@@ -1,0 +1,180 @@
+/* Estilos generales */
+body {
+  font-family: "Avenir", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Estilos del header */
+header {
+  background-color: #5B332A;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: auto auto; 
+  grid-template-rows: auto auto;
+  grid-template-areas: 
+  "logo icons"
+  "search search";
+  align-items: center;
+}
+
+/* Estilos del logo */
+.logo {
+  padding: 10px;
+}
+
+.logo img {
+  width: 100px;
+}
+
+.nav-item {
+  margin-left: 20px;
+  color: #FFD9B8;
+}
+
+.nav-item .icon {
+  font-size: 20px;
+  margin-right: 5px;
+}
+
+/* Estilos del ícono de búsqueda */
+.search-icon {
+  cursor: pointer; /* Cambiamos el cursor al pasar sobre el icono de búsqueda */
+}
+
+.nav-item .nav-text {
+  display: none;
+}
+
+/* Estilos de la barra de búsqueda */
+.search-bar {
+  display: none; /* Ocultamos la barra de búsqueda por defecto */
+}
+
+.search-bar input {
+  padding: 10px;
+  border: none;
+  background-color: #FFD9B8;
+  color: #331C17;
+  font-size: 16px;
+  width: 400px;
+  margin: 10px;
+  box-sizing: border-box;
+}
+
+#div-logo{
+  grid-area: logo;
+}
+
+#div-icons{
+  grid-area: icons;
+}
+
+#search-bar-nav{
+  grid-area: search;
+}
+
+main {
+  position: relative;
+  top: 39px;
+}
+
+/* Mobile styles */
+@media (max-width: 576px) {
+  .nav-icons {
+    display: grid; /* Mostramos los iconos en la tablet */
+    grid-template-columns: repeat(3, auto); /* Tres columnas para los iconos */
+    justify-content: end; /* Los iconos se alinean a la derecha */
+    gap: 5px; /* Espacio entre los iconos */
+  }
+
+  .nav-item {
+    margin-left: 10px;
+  }
+
+  .nav-item .nav-text {
+    display: none;
+  }
+
+  .search-bar.active {
+    display: block;
+    grid-column: span 2; /* El buscador ocupa dos columnas en dispositivos móviles */
+  }
+
+  .search-bar input {
+    width: calc(100% - 20px);
+  }
+}
+
+/* Media queries para tablet */
+@media (min-width: 577px) {
+  header {
+    grid-template-columns: auto 2fr auto; 
+    grid-template-rows: auto auto;
+    grid-template-areas: 
+    "logo logo logo"
+    "icons . search";
+    align-items: center;
+  }
+
+  #div-logo{
+    justify-self: center;
+  } 
+
+  .nav-icons {
+    display: grid; /* Mostramos los iconos en la tablet */
+    grid-template-columns: repeat(3, auto); /* Tres columnas para los iconos */
+    gap: 5px; /* Espacio entre los iconos */
+  }
+
+  .search-bar {
+    display: block; /* Mostramos la barra de búsqueda en la tablet */
+  }
+
+  .nav-item:first-child {
+    display: none;
+  }
+
+  main {
+    top: 98px;
+  }
+}
+
+/* Media queries para escritorio */
+@media (min-width: 1025px) {
+  header {
+    grid-template-columns: auto repeat(2, 1fr) auto; /* Cinco columnas para el escritorio */
+    grid-template-areas: 
+    "logo . icons search";
+    align-items: center;
+  }
+
+  .nav-icons {
+    display: grid; /* Mostramos los iconos en el escritorio */
+    grid-column: 4 / 5; /* Los iconos ocupan desde la cuarta columna hasta la quinta */
+    grid-template-columns: repeat(3, auto); /* Tres columnas para los iconos */
+    justify-content: end; /* Los iconos se alinean a la derecha */
+    gap: 5px; /* Espacio entre los iconos */
+  }
+
+  .nav-item .nav-text {
+    display: inline-block;
+  }
+
+  .search-bar {
+    display: block; /* Mostramos la barra de búsqueda en el escritorio */
+    grid-column: 5 / 6; /* La barra de búsqueda ocupa la quinta columna */
+  }
+
+  .nav-item:first-child {
+    display: none;
+  }
+
+  main {
+    top: 59px;
+  }
+}
